@@ -11,7 +11,6 @@ from werkzeug import secure_filename
 
 from lib._upload_file import *
 from lib._function import *
-from vdsr_testing import *
 
 ################ Init ################################
 folder_init()
@@ -60,7 +59,6 @@ def create_thumbnail(image):
 def convert():
   if request.method == 'GET':
     _filename = os.path.splitext(request.args.get("filename"))[0]
-    #print(video_meta('dummy'))
     print(video_Process(_filename,'cut'))
     print(video_Process(_filename,'extract'))
     print(vdsr_start())
@@ -149,4 +147,5 @@ def index():
 
 
 if __name__ == '__main__':
+  app.run(host='0.0.0.0', port=80)
   app.run(debug=True)

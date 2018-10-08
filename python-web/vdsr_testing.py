@@ -39,7 +39,7 @@ def test_with_sess(epoch, ckpt_path, data_path,sess):
       im_gt_ycbcr = 0
       img_raw = img_raw/255.0
       is_gray = True
-    for x in range(2,5):#About scale X2, X3, X4
+    for x in range(4,5):#About scale X2, X3, X4
       im_gt_y = imresize(imresize(img_raw, 1/x, interp='bicubic', mode='F'), [img_raw.shape[0], img_raw.shape[1]], interp='bicubic', mode='F')
       result_y = sess.run([output_tensor], feed_dict={input_tensor: np.resize(im_gt_y, (1, im_gt_y.shape[0], im_gt_y.shape[1], 1)), keep_prob: 1.0})
 
